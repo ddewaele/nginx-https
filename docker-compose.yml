@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./certs/cert.pem:/etc/certs/cert.pem
+      - ./certs/key.pem:/etc/certs/key.pem
+      - ./html:/usr/share/nginx/html
